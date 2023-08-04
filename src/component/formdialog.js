@@ -2,6 +2,7 @@ import { Box, Dialog, DialogContent, Typography } from "@mui/material";
 import React from "react";
 import { Button_Contained } from "../style/button";
 import { DISPLAY_FLEX_COLUMN, DISPLAY_FLEX_ROW } from "../style/default";
+import CloseIcon from '@mui/icons-material/Close';
 import "../index.css";
 
 function FormDialog({ open, onClose }) {
@@ -37,6 +38,7 @@ function FormDialog({ open, onClose }) {
           boxShadow: "0px 4px 20px 5px rgba(0, 0, 0, 0.20)",
         }}
       >
+        <CloseIcon sx={{ position:'absolute', right:"20px", color: "white", cursor: 'pointer' }} onClick={onClose} />
         <Box
           sx={{
             ...DISPLAY_FLEX_ROW,

@@ -1,10 +1,22 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, {useState} from "react";
 import { REASONS } from "../../constants";
 import { DISPLAY_FLEX_COLUMN, DISPLAY_FLEX_ROW } from "../../style/default";
 import { Button_Outlined } from "../../style/button";
 
+import FormDialog from "../formdialog";
+
 function Reason() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box
       sx={{
@@ -178,9 +190,10 @@ function Reason() {
             },
           }}
         >
-          <Button_Outlined>Get Started</Button_Outlined>
+          <Button_Outlined onClick={handleOpen}>Get Started</Button_Outlined>
         </Box>
       </Box>
+      <FormDialog open={open} onClose={handleClose} />
     </Box>
   );
 }
