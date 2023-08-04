@@ -39,6 +39,10 @@ function Navbar() {
         ...DISPLAY_FLEX_ROW,
         ...{
           width: "100vw",
+          position: "fixed",
+          top: 0,
+          zIndex: 100,
+          backdropFilter: "blur(15px)",
           justifyContent: "center",
         },
       }}
@@ -47,14 +51,11 @@ function Navbar() {
         sx={{
           ...DISPLAY_FLEX_ROW,
           ...{
-            position: "fixed",
-            top: 0,
-            zIndex: 100,
             justifyContent: "center",
             width: "80%",
             justifyContent: "space-between",
             alignItems: "center",
-            padding: "32px 23.22px 32px 0px",
+            padding: "32px 23px 10px 0px",
           },
         }}
       >
@@ -125,19 +126,20 @@ function Navbar() {
                   ...{
                     padding: "14px 17.63px 14px 18px",
                     alignItems: "flex-start",
-                    borderBottom: '4px solid',
-                    borderColor: item === currentTab ? '#00F0FF' : 'transparent',
-                    cursor: 'pointer',
-                    '&:hover': {
-                      borderBottom: '4px solid',
-                      borderColor: '#00F0FF',
-                  }
+                    borderBottom: "4px solid",
+                    borderColor:
+                      item === currentTab ? "#00F0FF" : "transparent",
+                    cursor: "pointer",
+                    "&:hover": {
+                      borderBottom: "4px solid",
+                      borderColor: "#00F0FF",
+                    },
                   },
                 }}
               >
                 <Typography
                   sx={{
-                    color: item === currentTab ? '#00F0FF' : "#fff",
+                    color: item === currentTab ? "#00F0FF" : "#fff",
                     fontFamily: "Source Sans Pro",
                     fontSize: "16px",
                     fontStyle: "normal",
@@ -155,32 +157,26 @@ function Navbar() {
         <Box
           sx={{
             ...DISPLAY_FLEX_ROW,
-            ...{
-              padding: "8.47px 0px",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexShrink: 0,
-            },
           }}
         >
-          <LoginButton
+          <Box
             sx={{
-              visibility: { md: "visible", xs: "hidden" },
-              width: { md: "100%", xs: "0px" },
+              ...DISPLAY_FLEX_ROW,
+              ...{
+                padding: "8.47px 0px",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flexShrink: 0,
+                visibility: { md: "visible", xs: "hidden" },
+                width: { md: "100%", xs: "0px" },
+              },
             }}
           >
-            Log in
-          </LoginButton>
-          <Button_Contained
-            sx={{
-              visibility: { md: "visible", xs: "hidden" },
-              width: { md: "100%", xs: "0px" },
-            }}
-
-            onClick={handleOpen}
-          >
-            Get Started
-          </Button_Contained>
+            <LoginButton>Log in</LoginButton>
+            <Button_Contained onClick={handleOpen}>
+              Get Started
+            </Button_Contained>
+          </Box>
 
           <IconButton
             sx={{

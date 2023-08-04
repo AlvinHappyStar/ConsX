@@ -1,7 +1,6 @@
 import { Button, styled } from '@mui/material';
 
 export const Button_Contained = styled(Button)({
-    minWidth: '130px',
     height: '40px',
     textTransform: 'none',
     padding: '8px 16px 8px 15px',

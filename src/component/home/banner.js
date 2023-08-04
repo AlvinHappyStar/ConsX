@@ -1,9 +1,20 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, {useState} from "react";
 import { Button_Contained } from "../../style/button";
 import { DISPLAY_FLEX_COLUMN, DISPLAY_FLEX_ROW } from "../../style/default";
+import FormDialog from "../formdialog";
 
 function Banner() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box
       sx={{
@@ -92,6 +103,7 @@ function Banner() {
             textAlign: "center",
             fontStyle: "normal",
             color: "#FFFFFF",
+            padding: "0px 10px",
           }}
         >
           At ConsX, we understand that every dream deserves a chance to soar.
@@ -110,10 +122,12 @@ function Banner() {
             },
           }}
         >
-          <Button_Contained>Request Demo</Button_Contained>
+          <Button_Contained onClick={handleOpen}>Request Demo</Button_Contained>
         </Box>
       </Box>
+      <FormDialog open={open} onClose={handleClose} />
     </Box>
+    
   );
 }
 

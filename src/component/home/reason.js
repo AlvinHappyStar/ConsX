@@ -42,6 +42,7 @@ function Reason() {
           fontStyle: "normal",
           color: "#FFF",
           marginTop: "15px",
+          padding: "0px 20px",
         }}
       >
         Why Choose ConsX for Your Market Research Needs?
@@ -120,7 +121,7 @@ function Reason() {
             width: {md: "992px", xs: "200px"},
             maxWidth: "992px",
             padding: "45px 65px 46px 65px",
-            justifyContent: "space-between",
+            justifyContent: {md: "space-between", xs: "center"},
             alignItems: "center",
             borderRadius: "12px",
             border: "1px solid #093A70",
@@ -137,6 +138,7 @@ function Reason() {
               flexShrink: 0,
               marginRight:{md:"112px", xs: "0px"},
               gap:"10px",
+              
             },
           }}
         >
@@ -156,7 +158,7 @@ function Reason() {
           <Typography
             sx={{
               fontFamily: "Inter",
-              fontSize: {md: "28px", xs:"24px"},
+              fontSize: {md: "28px", xs:"20px"},
               fontWeight: "700",
               lineHeight: "normal",
               fontStyle: "normal",

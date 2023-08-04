@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
-
 body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
@@ -11,4 +9,8 @@ body {
 
 code {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.custom-input::placeholder {
+  color: #4675A5; /* desired placeholder text color */
 }

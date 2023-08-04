@@ -1,14 +1,8 @@
+import { Box, Dialog, DialogContent, Typography } from "@mui/material";
 import React from "react";
-import {
-  Box,
-  Dialog,
-  DialogContent,
-  Input,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { DISPLAY_FLEX_COLUMN, DISPLAY_FLEX_ROW } from "../style/default";
 import { Button_Contained } from "../style/button";
+import { DISPLAY_FLEX_COLUMN, DISPLAY_FLEX_ROW } from "../style/default";
+import "../index.css";
 
 function FormDialog({ open, onClose }) {
   const handleClose = () => {
@@ -16,7 +10,25 @@ function FormDialog({ open, onClose }) {
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog
+      PaperProps={{
+        style: {
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          maxWidth: "960px",
+        //   height: "200vh",
+        },
+      }}
+      BackdropProps={{
+        style: {
+          backgroundColor: "rgba(2, 18, 33, 0.30)",
+          backdropFilter: "blur(10px)",
+        },
+      }}
+      scroll="body"
+      open={open}
+      onClose={handleClose}
+    >
       <DialogContent
         sx={{
           background: "#0D2946",
@@ -31,6 +43,8 @@ function FormDialog({ open, onClose }) {
             ...{
               justifyContent: "space-between",
               alignItems: "center",
+              width: "100%",
+              flexDirection: { md: "row", xs: "column" },
             },
           }}
         >
@@ -40,7 +54,8 @@ function FormDialog({ open, onClose }) {
               ...{
                 justifyContent: "center",
                 alignItems: "center",
-                width: "50%",
+                width: { md: "48%", xs: "100%" },
+                paddingTop: "20px",
               },
             }}
           >
@@ -82,26 +97,45 @@ function FormDialog({ open, onClose }) {
                 fontStyle: "normal",
                 fontWeight: "700",
                 lineHeight: "22px",
+                paddingBottom: "28px",
               }}
             >
               Automate Your Curiosity Today
             </Typography>
 
             <Box
-              label="Contact Information*"
               sx={{
                 ...DISPLAY_FLEX_COLUMN,
                 ...{
+                  position: "relative",
                   justifyContent: "center",
                   alignItems: "center",
                   borderRadius: "20px",
                   border: "1px solid #4675A5",
                   padding: "34px 21px",
-                  gap: "23px",
-                  marginBottom: "30px",
+                  gap: "12px",
+                  marginBottom: "20px",
                 },
               }}
             >
+              <Typography
+                sx={{
+                  position: "absolute",
+                  top: "-10px",
+                  left: "10px",
+                  background: "#0D2946",
+                  paddingX: "5px",
+                  color: "#4675A5",
+                  fontFamily: "DM Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: "400",
+                  lineHeight: "22px",
+                  textAlign: "left",
+                }}
+              >
+                Contact Information*
+              </Typography>
               <Box
                 sx={{
                   ...DISPLAY_FLEX_ROW,
@@ -116,18 +150,21 @@ function FormDialog({ open, onClose }) {
                   placeholder="First Name*"
                   required
                   style={{
-                    width: "45%",
+                    width: "40%",
                     background: "#092038",
                     borderRadius: "8px",
-                    border: "1px solid",
                     color: "#4675A5",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: "400",
-                    lineHeight: "22px",
                     padding: "7.5px",
+                    border: "none",
+                    "@::placeholder": {
+                      color: "#4675A5",
+                    },
                   }}
+                  className="custom-input"
                 />
 
                 <input
@@ -135,11 +172,11 @@ function FormDialog({ open, onClose }) {
                   placeholder="Last Name*"
                   required
                   style={{
-                    width: "45%",
+                    width: "40%",
                     background: "#092038",
                     borderRadius: "8px",
                     color: "#4675A5",
-                    border: "1px solid",
+                    border: "none",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
                     fontStyle: "normal",
@@ -147,6 +184,7 @@ function FormDialog({ open, onClose }) {
                     lineHeight: "22px",
                     padding: "7.5px",
                   }}
+                  className="custom-input"
                 />
               </Box>
 
@@ -166,7 +204,7 @@ function FormDialog({ open, onClose }) {
                     width: "100%",
                     background: "#092038",
                     borderRadius: "8px",
-                    border: "1px solid",
+                    border: "none",
                     color: "#4675A5",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
@@ -175,6 +213,7 @@ function FormDialog({ open, onClose }) {
                     lineHeight: "22px",
                     padding: "7.5px",
                   }}
+                  className="custom-input"
                 />
               </Box>
 
@@ -192,10 +231,10 @@ function FormDialog({ open, onClose }) {
                   placeholder="Phone Number*"
                   required
                   style={{
-                    width: "60%",
+                    width: "50%",
                     background: "#092038",
                     borderRadius: "8px",
-                    border: "1px solid",
+                    border: "none",
                     color: "#4675A5",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
@@ -204,6 +243,7 @@ function FormDialog({ open, onClose }) {
                     lineHeight: "22px",
                     padding: "7.5px",
                   }}
+                  className="custom-input"
                 />
 
                 <input
@@ -214,7 +254,7 @@ function FormDialog({ open, onClose }) {
                     width: "30%",
                     background: "#092038",
                     borderRadius: "8px",
-                    border: "1px solid",
+                    border: "none",
                     color: "#4675A5",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
@@ -223,6 +263,7 @@ function FormDialog({ open, onClose }) {
                     lineHeight: "22px",
                     padding: "7.5px",
                   }}
+                  className="custom-input"
                 />
               </Box>
 
@@ -236,13 +277,13 @@ function FormDialog({ open, onClose }) {
               >
                 <input
                   type="text"
-                  placeholder="Company (if applicable) ?"
+                  placeholder="Company (if applicable)"
                   required
                   style={{
                     width: "100%",
                     background: "#092038",
                     borderRadius: "8px",
-                    border: "1px solid",
+                    border: "none",
                     color: "#4675A5",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
@@ -251,6 +292,7 @@ function FormDialog({ open, onClose }) {
                     lineHeight: "22px",
                     padding: "7.5px",
                   }}
+                  className="custom-input"
                 />
               </Box>
             </Box>
@@ -260,7 +302,7 @@ function FormDialog({ open, onClose }) {
                 ...DISPLAY_FLEX_ROW,
                 ...{
                   width: "100%",
-                  marginBottom: "30px",
+                  marginBottom: "12px",
                 },
               }}
             >
@@ -272,7 +314,7 @@ function FormDialog({ open, onClose }) {
                   width: "100%",
                   background: "#092038",
                   borderRadius: "8px",
-                  border: "1px solid",
+                  border: "none",
                   color: "#4675A5",
                   fontFamily: "DM Sans",
                   fontSize: "14px",
@@ -281,6 +323,7 @@ function FormDialog({ open, onClose }) {
                   lineHeight: "22px",
                   padding: "7.5px",
                 }}
+                className="custom-input"
               />
             </Box>
 
@@ -289,7 +332,7 @@ function FormDialog({ open, onClose }) {
                 ...DISPLAY_FLEX_ROW,
                 ...{
                   width: "100%",
-                  marginBottom: "30px",
+                  marginBottom: "12px",
                 },
               }}
             >
@@ -301,7 +344,7 @@ function FormDialog({ open, onClose }) {
                   width: "100%",
                   background: "#092038",
                   borderRadius: "8px",
-                  border: "1px solid",
+                  border: "none",
                   color: "#4675A5",
                   fontFamily: "DM Sans",
                   fontSize: "14px",
@@ -310,6 +353,7 @@ function FormDialog({ open, onClose }) {
                   lineHeight: "22px",
                   padding: "7.5px",
                 }}
+                className="custom-input"
               />
             </Box>
 
@@ -328,9 +372,10 @@ function FormDialog({ open, onClose }) {
                 required
                 style={{
                   width: "100%",
+                  resize: "none",
                   background: "#092038",
                   borderRadius: "8px",
-                  border: "1px solid",
+                  border: "none",
                   color: "#4675A5",
                   fontFamily: "DM Sans",
                   fontSize: "14px",
@@ -339,6 +384,7 @@ function FormDialog({ open, onClose }) {
                   lineHeight: "22px",
                   padding: "7.5px",
                 }}
+                className="custom-input"
               />
             </Box>
           </Box>
@@ -348,32 +394,50 @@ function FormDialog({ open, onClose }) {
               ...DISPLAY_FLEX_COLUMN,
               ...{
                 justifyContent: "flex-start",
-                alignItems: "end",
-                width: "45%",
+                alignItems: "start",
+                width: { md: "48%", xs: "100%" },
               },
             }}
           >
             <Box
-              label="Business Information*"
               sx={{
                 ...DISPLAY_FLEX_COLUMN,
                 ...{
+                  position: "relative",
                   justifyContent: "center",
                   alignItems: "center",
                   borderRadius: "20px",
                   border: "1px solid #4675A5",
-                  padding: "44px 23px",
-                  gap: "23px",
-                  marginBottom: "30px",
+                  padding: "23px 33px 23px 23px",
+                  gap: "12px",
+                  marginBottom: "20px",
+                  width: "80%",
                 },
               }}
             >
+              <Typography
+                sx={{
+                  position: "absolute",
+                  top: "-10px",
+                  left: "10px",
+                  background: "#0D2946",
+                  paddingX: "5px",
+                  color: "#4675A5",
+                  fontFamily: "DM Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: "400",
+                  lineHeight: "22px",
+                  textAlign: "left",
+                }}
+              >
+                Business Information*
+              </Typography>
               <Box
                 sx={{
                   ...DISPLAY_FLEX_ROW,
                   ...{
                     width: "100%",
-                    marginBottom: "30px",
                   },
                 }}
               >
@@ -385,7 +449,7 @@ function FormDialog({ open, onClose }) {
                     width: "100%",
                     background: "#092038",
                     borderRadius: "8px",
-                    border: "1px solid",
+                    border: "none",
                     color: "#4675A5",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
@@ -394,6 +458,7 @@ function FormDialog({ open, onClose }) {
                     lineHeight: "22px",
                     padding: "7.5px",
                   }}
+                  className="custom-input"
                 />
               </Box>
 
@@ -402,7 +467,6 @@ function FormDialog({ open, onClose }) {
                   ...DISPLAY_FLEX_ROW,
                   ...{
                     width: "100%",
-                    marginBottom: "30px",
                   },
                 }}
               >
@@ -412,9 +476,10 @@ function FormDialog({ open, onClose }) {
                   required
                   style={{
                     width: "100%",
+                    resize: "none",
                     background: "#092038",
                     borderRadius: "8px",
-                    border: "1px solid",
+                    border: "none",
                     color: "#4675A5",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
@@ -423,6 +488,7 @@ function FormDialog({ open, onClose }) {
                     lineHeight: "22px",
                     padding: "7.5px",
                   }}
+                  className="custom-input"
                 />
               </Box>
 
@@ -431,7 +497,6 @@ function FormDialog({ open, onClose }) {
                   ...DISPLAY_FLEX_ROW,
                   ...{
                     width: "100%",
-                    marginBottom: "30px",
                   },
                 }}
               >
@@ -441,8 +506,8 @@ function FormDialog({ open, onClose }) {
                     width: "50%",
                     background: "#092038",
                     borderRadius: "8px",
-                    border: "1px solid",
-                    color: "#4675A5",
+                    border: "none",
+                    color: "#fff",
                     fontFamily: "DM Sans",
                     fontSize: "14px",
                     fontStyle: "normal",
@@ -450,7 +515,9 @@ function FormDialog({ open, onClose }) {
                     lineHeight: "22px",
                     padding: "7.5px",
                   }}
-                />
+                >
+                  <option value="1">Startup</option>
+                </select>
               </Box>
             </Box>
 
@@ -459,7 +526,7 @@ function FormDialog({ open, onClose }) {
                 ...DISPLAY_FLEX_ROW,
                 ...{
                   width: "100%",
-                  marginBottom: "30px",
+                  marginBottom: "12px",
                 },
               }}
             >
@@ -469,9 +536,10 @@ function FormDialog({ open, onClose }) {
                 required
                 style={{
                   width: "100%",
+                  resize: "none",
                   background: "#092038",
                   borderRadius: "8px",
-                  border: "1px solid",
+                  border: "none",
                   color: "#4675A5",
                   fontFamily: "DM Sans",
                   fontSize: "14px",
@@ -480,6 +548,7 @@ function FormDialog({ open, onClose }) {
                   lineHeight: "22px",
                   padding: "7.5px",
                 }}
+                className="custom-input"
               />
             </Box>
 
@@ -488,7 +557,7 @@ function FormDialog({ open, onClose }) {
                 ...DISPLAY_FLEX_ROW,
                 ...{
                   width: "100%",
-                  marginBottom: "30px",
+                  marginBottom: "12px",
                 },
               }}
             >
@@ -500,7 +569,7 @@ function FormDialog({ open, onClose }) {
                   width: "100%",
                   background: "#092038",
                   borderRadius: "8px",
-                  border: "1px solid",
+                  border: "none",
                   color: "#4675A5",
                   fontFamily: "DM Sans",
                   fontSize: "14px",
@@ -509,6 +578,7 @@ function FormDialog({ open, onClose }) {
                   lineHeight: "22px",
                   padding: "7.5px",
                 }}
+                className="custom-input"
               />
             </Box>
 
@@ -517,7 +587,7 @@ function FormDialog({ open, onClose }) {
                 ...DISPLAY_FLEX_ROW,
                 ...{
                   width: "100%",
-                  marginBottom: "30px",
+                  marginBottom: "12px",
                 },
               }}
             >
@@ -529,7 +599,7 @@ function FormDialog({ open, onClose }) {
                   width: "100%",
                   background: "#092038",
                   borderRadius: "8px",
-                  border: "1px solid",
+                  border: "none",
                   color: "#4675A5",
                   fontFamily: "DM Sans",
                   fontSize: "14px",
@@ -538,6 +608,7 @@ function FormDialog({ open, onClose }) {
                   lineHeight: "22px",
                   padding: "7.5px",
                 }}
+                className="custom-input"
               />
             </Box>
 
@@ -552,29 +623,36 @@ function FormDialog({ open, onClose }) {
             >
               <input
                 type="checkbox"
+                style={{
+                  backgroundColor: "#092038",
+                }}
               />
               <Typography
-              sx={{
-                color: "#4675A5",
-                fontFamily: "DM Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: "400",
-                lineHeight: "22px",
-                padding: "7.5px",
-              }}>Consent and Privacy*</Typography>
+                sx={{
+                  color: "#4675A5",
+                  fontFamily: "DM Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: "400",
+                  lineHeight: "22px",
+                  padding: "7.5px",
+                }}
+              >
+                Consent and Privacy*
+              </Typography>
             </Box>
 
             <Box
               sx={{
                 ...DISPLAY_FLEX_ROW,
                 ...{
-                  justifyContent:'center',
-                  alignItems: 'center',
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
                 },
               }}
             >
-            <Button_Contained>Request a Demo</Button_Contained>
+              <Button_Contained>Request a Demo</Button_Contained>
             </Box>
           </Box>
         </Box>

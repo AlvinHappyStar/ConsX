@@ -41,6 +41,7 @@ function Ideas() {
           fontStyle: "normal",
           color: "#FFF",
           marginTop: "15px",
+          padding: "0px 20px",
         }}
       >
         Unravel the Potential of Your Business Idea with ConsX!
