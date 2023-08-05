@@ -65,11 +65,11 @@ export const REASONS = [
       role: "CEO, CTO",
       pic: "./images/person1.png"
     },
-    {
-      name: "Ronald Richards",
-      role: "Marketing Head",
-      pic: "./images/person2.png"
-    },
+    // {
+    //   name: "Ronald Richards",
+    //   role: "Marketing Head",
+    //   pic: "./images/person2.png"
+    // },
     {
       name: "Ranko Neskovic",
       role: "Developer",

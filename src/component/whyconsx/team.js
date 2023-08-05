@@ -60,12 +60,13 @@ function Team() {
         paddingTop: '60px',
       }}>
         {TEAMS.map((item) => (
-          <Grid item xs={12} sm={12} md={4} lg={4}>
+          <Grid item xs={12} sm={12} md={6} lg={6}>
             <Box
               sx={{
                 ...DISPLAY_FLEX_COLUMN,
                 ...{
-                  justifyContent: "flex-start",
+                alignItems: "center",
+                justifyContent: "center",
                 },
               }}
             >
