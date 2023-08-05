@@ -3,11 +3,23 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { SubscribeButton } from "../style/button";
 import { DISPLAY_FLEX_COLUMN, DISPLAY_FLEX_ROW } from "../style/default";
+import FormDialog from "./formdialog";
 
 const PAGE_TABS = ["Home", "Demos", "Why ConsX", "Blog", "FAQ"];
 const PAGE_TAB_URLS = ["/home", "/demos", "/whyconsx", "/blog", "/faq"];
 
 function Footer() {
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   let history = useHistory();
   const location = useLocation();
 
@@ -139,6 +151,8 @@ function Footer() {
                 }}
               >
                 <Typography
+                  component="a"
+                  href="/whyconsx"
                   sx={{
                     color: "#FFF",
                     fontFamily: "Source Sans Pro",
@@ -152,6 +166,8 @@ function Footer() {
                 </Typography>
 
                 <Typography
+                component="a"
+                href="/about"
                   sx={{
                     color: "#FFF",
                     fontFamily: "Source Sans Pro",
@@ -164,6 +180,8 @@ function Footer() {
                   About
                 </Typography>
                 <Typography
+                component="a"
+                href="/demos"
                   sx={{
                     color: "#FFF",
                     fontFamily: "Source Sans Pro",
@@ -188,6 +206,8 @@ function Footer() {
                 }}
               >
                 <Typography
+                component="a"
+                href="/blog"
                   sx={{
                     color: "#FFF",
                     fontFamily: "Source Sans Pro",
@@ -201,6 +221,8 @@ function Footer() {
                 </Typography>
 
                 <Typography
+                component="a"
+                href="/faq"
                   sx={{
                     color: "#FFF",
                     fontFamily: "Source Sans Pro",
@@ -232,7 +254,9 @@ function Footer() {
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "20px",
+                    cursor:'pointer'
                   }}
+                  onClick={handleOpen}
                 >
                   Request Demo
                 </Typography>
@@ -245,6 +269,7 @@ function Footer() {
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "20px",
+                    cursor:'pointer',
                   }}
                 >
                   Log in
@@ -404,6 +429,7 @@ function Footer() {
           </Box>
         </Box>
       </Box>
+      <FormDialog open={open} onClose={handleClose} />
     </Box>
   );
 }

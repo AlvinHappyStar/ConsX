@@ -240,7 +240,7 @@ function Navbar() {
                 />
               </IconButton>
             </Box>
-            {PAGE_TABS.map((item) => (
+            {PAGE_TAB_URLS.map((item, index) => (
               <Box
                 sx={{
                   ...DISPLAY_FLEX_ROW,
@@ -248,6 +248,10 @@ function Navbar() {
                     padding: "14px 17.63px 14px 18px",
                     alignItems: "flex-start",
                   },
+                }}
+                onClick={() => {
+                  setCurrentTab(item);
+                  history.push(item);
                 }}
               >
                 <Typography
@@ -260,13 +264,13 @@ function Navbar() {
                     lineHeight: "20px",
                   }}
                 >
-                  {item}
+                  {PAGE_TABS[index]}
                 </Typography>
               </Box>
             ))}
 
             <LoginButton>Log in</LoginButton>
-            <Button_Contained>Get Started</Button_Contained>
+            <Button_Contained onClick={handleOpen}>Get Started</Button_Contained>
           </Box>
         </Box>
       </Drawer>

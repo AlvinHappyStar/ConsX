@@ -23,7 +23,7 @@ function Mission() {
             justifyContent: "flex-start",
             paddingTop:"100px",
             gap: "100px",
-            flexDirection: {md: 'row', xs: 'column'}
+            flexDirection: {md: 'row', xs: 'column'},
           },
         }}
       >
@@ -110,7 +110,7 @@ function Mission() {
         sx={{
           ...DISPLAY_FLEX_ROW,
           ...{
-            justifyContent: "flex-start",
+            justifyContent: "center",
             paddingTop:"100px",
             gap: "100px",
             flexDirection: {md: 'row', xs: 'column-reverse'}
@@ -121,7 +121,8 @@ function Mission() {
           sx={{
             ...DISPLAY_FLEX_ROW,
             ...{
-              justifyContent: "flex-start",
+              justifyContent: "center",
+              alignItems:'center'
             },
           }}
         >
@@ -143,6 +144,7 @@ function Mission() {
               justifyContent: "flex-start",
               alignItems: "center",
               paddingTop: "100px",
+              paddingLeft:"20px"
             },
           }}
         >

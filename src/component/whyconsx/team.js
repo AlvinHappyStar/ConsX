@@ -23,6 +23,7 @@ function Team() {
           ...{
             justifyContent: "center",
             alignItems: "center",
+            padding:"10px"
           },
         }}
       >
@@ -55,7 +56,7 @@ function Team() {
       </Box>
       <Grid container spacing={2}
       sx={{
-        width: '60%',
+        width: {md: '60%', xs: '90%'},
         paddingTop: '60px',
       }}>
         {TEAMS.map((item) => (
@@ -73,10 +74,11 @@ function Team() {
                   borderRadius: "5px",
                   height: '250px',
                   width: '300px',
-                  background: `linear-gradient(0deg, rgba(13, 14, 27, 0.20) 0%, rgba(13, 14, 27, 0.20) 100%), url(${item.pic}), lightgray 50% / cover no-repeat`,
                   paddingBottom:'20px',
                 }}
-              ></Box>
+              >
+                <img alt="" style={{width:'100%', height:'100%', objectFit:'cover'}}src={item.pic} />
+              </Box>
 
 
               <Typography
@@ -141,6 +143,8 @@ function Team() {
             justifyContent: "center",
             alignItems: "center",
             paddingTop: '200px',
+            paddingLeft:'5px',
+            paddingRight: '5px',
           },
         }}
       >
@@ -153,6 +157,7 @@ function Team() {
             fontStyle: "normal",
             color: "#fff",
             marginBottom: "8px",
+            
           }}
         >
           Our Values

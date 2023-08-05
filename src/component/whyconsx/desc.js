@@ -24,7 +24,8 @@ function Desc() {
             justifyContent: "flex-start",
             paddingTop: "100px",
             gap: "200px",
-            flexDirection: {md: 'row', xs: 'column'}
+            flexDirection: {md: 'row', xs: 'column'},
+            
           },
         }}
       >
@@ -62,7 +63,7 @@ function Desc() {
                 <Typography
                   sx={{
                     fontFamily: "Raleway",
-                    fontSize: "24px",
+                    fontSize: {md: "24px", xs: '20px'},
                     fontWeight: "700",
                     lineHeight: "40.8px",
                     fontStyle: "normal",
@@ -74,7 +75,7 @@ function Desc() {
 
                 <Box
                   sx={{
-                    width: "450px",
+                    width: {md: "450px", xs:"300px"}
                   }}
                 >
                   <Typography
