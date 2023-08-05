@@ -65,7 +65,7 @@ function Team() {
               sx={{
                 ...DISPLAY_FLEX_COLUMN,
                 ...{
-                  justifyContent: "flex-start",
+                  justifyContent: "flex-center",
                 },
               }}
             >
